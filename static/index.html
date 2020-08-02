@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="jquery-3.5.1.min.js"></script>
+    </head>
+
+    <body>
+        <div id="cover-page" class="page container-fluid">
+            <div id="cover-title">
+                <p> Image Labeler </p>
+                <p id="cover-subtitle">A light-weight tool for creating image level annotations</p>
+            </div>
+        </div>
+        <div id="editing-page" class="page  container-fluid col">
+            <div id="btn-area" class="row">
+                <button type="button" class="ctrl-btn btn btn-primary col-sm-2" id="btn-upload"> New Image</button> 
+                <input id="img-upload" type="file" accept="image/*">
+                <button type="button" class="ctrl-btn btn btn-success col-sm-2" id="btn-download"> Download Annotation JSON file</button>
+            </div>
+
+            <div id="editing-area" class="row">
+                <div id="list-area" class="col-sm-2 overflow-auto">
+                    <ol id="bbox-list" >
+                    </ol>
+                </div>
+                
+                <div id="editing-window" class="col-sm-8">
+                    <canvas id="img-canvas"> </canvas>
+                    <canvas id="boxes-canvas"> </canvas>
+                    <canvas id="editing-canvas" ></canvas>
+                </div>
+
+                <div id="info-area" class="col-sm-2">
+                    <div id="tracker-display" class="row">
+                        <div class="tracker-display-box col-sm-4"><span>x: </span> <span id="tracker-x">0</span></div>
+                        <div class="tracker-display-box col-sm-4"><span>y: </span> <span id="tracker-y">0</span></div>
+                    </div>
+                    <div id="info-table">
+                        <div class="info-box row"><label for="name-input" class="col-sm-2">name</label><input class="info-input col-sm-6" id="name-input"> </div>
+                        <div class="info-box row"><label for="class-input" class="col-sm-2">class</label> <input class="info-input col-sm-6" id="class-input"> </div>
+                        <div class="info-box row"><label for="x1-input" class="col-sm-2">x0</label><input class="info-input col-sm-6" id="x1-input"> </div>
+                        <div class="info-box row"><label for="x2-input" class="col-sm-2">x1</label><input class="info-input col-sm-6" id="x2-input"> </div>
+                        <div class="info-box row"><label for="y1-input" class="col-sm-2">y0</label> <input class="info-input col-sm-6" id="y1-input"> </div>
+                        <div class="info-box row"><label for="y2-input" class="col-sm-2">y1</label><input class="info-input col-sm-6" id="y2-input"> </div>
+                    </div>
+                    <div id="info-ctrl">
+                        <button id="btn-confirm" class="btn btn-primary"> Confirm </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script type="text/javascript" src="tracker.js"></script>
+    </body>
+</html>
